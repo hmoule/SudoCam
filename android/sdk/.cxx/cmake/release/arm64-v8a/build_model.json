@@ -1,0 +1,74 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "/Users/henrymoule/workspace/SudoCam/android",
+      "sdkFolder": "/Users/henrymoule/Library/Android/sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/build/intermediates",
+      "gradleModulePathName": ":sdk",
+      "moduleRootFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk",
+      "makeFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/libcxx_helper/CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "compilerSettingsCacheFolder": "/Users/henrymoule/workspace/SudoCam/android/.cxx",
+      "cxxFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx",
+      "ndkFolder": "/Users/henrymoule/Library/Android/sdk/ndk/21.0.6113669",
+      "ndkVersion": "21.0.6113669",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [
+      "-DANDROID_STL\u003dc++_shared"
+    ],
+    "cFlagList": [],
+    "cppFlagsList": [],
+    "variantName": "release",
+    "soFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/build/intermediates/cmake/release/lib",
+    "objFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/build/intermediates/cmake/release/obj",
+    "jsonFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release",
+    "gradleBuildOutputFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": [
+      "opencv_jni_shared"
+    ]
+  },
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 16,
+  "cxxBuildFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release/arm64-v8a",
+  "jsonFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release/arm64-v8a/android_gradle_build.json",
+  "gradleBuildOutputFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a",
+  "objFolder": "/Users/henrymoule/workspace/SudoCam/android/sdk/build/intermediates/cmake/release/obj/arm64-v8a",
+  "buildCommandFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release/arm64-v8a/build_command.txt",
+  "buildOutputFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release/arm64-v8a/build_output.txt",
+  "modelOutputFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release/arm64-v8a/build_model.json",
+  "cmake": {
+    "cmakeListsWrapperFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a/CMakeLists.txt",
+    "toolchainWrapperFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a/android_gradle_build.toolchain.cmake",
+    "buildGenerationStateFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a/build_generation_state.json",
+    "cacheKeyFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a/compiler_cache_key.json",
+    "compilerCacheUseFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a/compiler_cache_use.json",
+    "compilerCacheWriteFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a/compiler_cache_write.json",
+    "toolchainSettingsFromCacheFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cxx/release/arm64-v8a/compiler_settings_cache.cmake",
+    "cmakeWrappingBaseFolder": "."
+  },
+  "jsonGenerationLoggingRecordFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release/arm64-v8a/json_generation_record.json",
+  "compileCommandsJsonFile": "/Users/henrymoule/workspace/SudoCam/android/sdk/.cxx/cmake/release/arm64-v8a/compile_commands.json"
+}
