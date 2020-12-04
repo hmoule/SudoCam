@@ -8,13 +8,20 @@ import com.facebook.react.bridge.Callback;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
 import org.opencv.android.Utils;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.MatOfPoint2f;
+import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
 import android.util.Base64;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RNOpenCvLibraryModule extends ReactContextBaseJavaModule {
 
@@ -28,6 +35,25 @@ public class RNOpenCvLibraryModule extends ReactContextBaseJavaModule {
     @Override
     public String getName() {
         return "RNOpenCvLibrary";
+    }
+
+    @ReactMethod
+    public void solveSudoku(String base64) {
+        byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        Mat mat = new Mat();
+        Utils.bitmapToMat(bitmap, mat);
+        Imgproc.cvtColor(mat, mat, Imgproc.COLOR_RGBA2GRAY);
+        Imgproc.GaussianBlur(mat, mat, new Size(9,9), 0);
+        Imgproc.adaptiveThreshold(mat, mat, 255, Imgproc.ADAPTIVE_THRESH_GAUSSIAN_C, Imgproc.THRESH_BINARY, 11, 2);
+        Core.bitwise_not(mat, mat);
+        Utils.matToBitmap(mat, bitmap);
+
+        System.out.println("test");
+
+
+
+
     }
 
     @ReactMethod

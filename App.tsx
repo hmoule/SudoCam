@@ -2,6 +2,7 @@ import {RNCamera} from 'react-native-camera';
 import ml from '@react-native-firebase/ml';
 import React, {FunctionComponent} from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import OpenCV from './src/NativeModules/Opencv';
 
 const PendingView = () => (
   <View
@@ -19,16 +20,17 @@ const App: FunctionComponent = () => {
   const takePicture = async (camera) => {
     const options = {quality: 0.5, base64: true};
     const data = await camera.takePictureAsync(options);
-    console.log(data.uri)
-    console.log(data.path)
-    const processed = await ml().cloudDocumentTextRecognizerProcessImage(
-      data.uri,
-    );
-    processed.blocks.forEach((block) => {
-      console.log('Found block with text: ', block.text);
-      console.log('Confidence in block: ', block.confidence);
-      console.log('Languages found in block: ', block.recognizedLanguages);
-    });
+    OpenCV.solveSudoku(data.base64);
+    // console.log(data.uri);
+    // console.log(data.path);
+    // const processed = await ml().cloudDocumentTextRecognizerProcessImage(
+    //   data.uri,
+    // );
+    // processed.blocks.forEach((block) => {
+    //   console.log('Found block with text: ', block.text);
+    //   console.log('Confidence in block: ', block.confidence);
+    //   console.log('Languages found in block: ', block.recognizedLanguages);
+    // });
   };
   return (
     <View style={styles.container}>
