@@ -1,8 +1,9 @@
 import {RNCamera} from 'react-native-camera';
 import ml from '@react-native-firebase/ml';
 import React, {FunctionComponent} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
-import OpenCV from './src/NativeModules/Opencv';
+import {StyleSheet, View, Text, TouchableOpacity, Alert} from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
+import ImagePicker from 'react-native-image-picker';
 
 const PendingView = () => (
   <View
@@ -17,10 +18,37 @@ const PendingView = () => (
 );
 
 const App: FunctionComponent = () => {
+  const chooseFromLibrary = () => {
+    ImagePicker.launchImageLibrary(
+      {mediaType: 'photo', storageOptions: {skipBackup: true}},
+      async (response) => {
+        debugger;
+        if (response.data) {
+          await RNFetchBlob.fetch(
+            'POST',
+            'http://10.0.2.2:5000/solve',
+            {'Content-Type': 'multipart/form-data'},
+            [{name: 'file', filename: 'file.jpg', data: response.data}],
+          );
+        }
+      },
+    );
+  };
   const takePicture = async (camera) => {
-    const options = {quality: 0.5, base64: true};
-    const data = await camera.takePictureAsync(options);
-    OpenCV.solveSudoku(data.base64);
+    try {
+      const options = {base64: true, fixOrientation: true};
+      const data = await camera.takePictureAsync(options);
+
+      await RNFetchBlob.fetch(
+        'POST',
+        'http://10.0.2.2:5000/solve',
+        {'Content-Type': 'multipart/form-data'},
+        [{name: 'file', filename: 'file.jpg', data: data.base64}],
+      );
+    } catch (e) {
+      Alert.alert('Error', e.message);
+    }
+
     // console.log(data.uri);
     // console.log(data.path);
     // const processed = await ml().cloudDocumentTextRecognizerProcessImage(
@@ -61,6 +89,11 @@ const App: FunctionComponent = () => {
           );
         }}
       </RNCamera>
+      <TouchableOpacity
+        style={{height: 50, backgroundColor: 'red'}}
+        onPress={chooseFromLibrary}>
+        <Text>Choose from library</Text>
+      </TouchableOpacity>
     </View>
   );
 };
